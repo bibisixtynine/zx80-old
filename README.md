@@ -1,10 +1,10 @@
-# zx2023.app, the online programmable computer
+# zx80.app, the online programmable computer
 
 <p align="center">
   <a href="https://www.zx80.app"><img src="public/homescreen_title.png" height="auto" width="70%"></a>
 </p>
 
-## What's zx2023.app ?
+## What's zx80.app ?
 
 WARNING : this app is at its very early stage of development... less than ALPHA !
 
