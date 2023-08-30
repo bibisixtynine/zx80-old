@@ -22,13 +22,15 @@ For the installation process, use :
 Here is [a link for some more info on how to install a PWA webapp](https://www.cdc.gov/niosh/mining/content/hearingloss/installPWA.html#:~:text=If%20the%20site%20is%20a,the%20%22three%20dot%22%20menu.)
 
 
-## Tested on...
+## PWA install tested on...
 
 - iPhone 13 mini (ios 16.2 and Safari)
-- Macbook Air M1 (Chrome 109 and Microsoft Edge 109) osx 12/13/14
+- Macbook Air M1 (Chrome 109 and Microsoft Edge 109) osx 12/13/14 (Monterey, Ventura, Sonoma)
 - 2013 Nexus 7 tablet with android 6.0.1 and Chrome 100
 
-... should work with older Chrome / osx version ... but not tested
+... should work with older Chrome/Chromium / osx version ... but not tested
+... should work with older Chrome/Chromium & Edge / Windows version ... but not tested
+... should work with Chrome/Chromium / linux version ... but not tested
 
 
 ## Why this app ?
@@ -70,3 +72,7 @@ press one of these buttons :
 in Codeflow IDE, everything starts in :
 - index.html
 - src/App.svelte
+
+or
+
+use VSCode (you will have to do in the terminal the classic "sudo npm install" and then "sudo npm run dev" ... tested on OSX SONOMA)
