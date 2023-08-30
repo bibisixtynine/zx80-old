@@ -1,6 +1,6 @@
 # Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
 v: 0
-icon: ./icon.png
+icon: ./public/sunrise-512x512.png
 micros:
   - name: zx80
     src: ./

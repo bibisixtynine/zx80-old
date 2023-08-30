@@ -25,8 +25,10 @@ Here is [a link for some more info on how to install a PWA webapp](https://www.c
 ## Tested on...
 
 - iPhone 13 mini (ios 16.2 and Safari)
-- Macbook Air M1 (Chrome 109 and Microsoft Edge 109)
+- Macbook Air M1 (Chrome 109 and Microsoft Edge 109) osx 12/13/14
 - 2013 Nexus 7 tablet with android 6.0.1 and Chrome 100
+
+... should work with older Chrome / osx version ... but not tested
 
 
 ## Why this app ?
