@@ -1,10 +1,10 @@
-# zx80.app, the online programmable computer
+# zx2023.app, the online programmable computer
 
 <p align="center">
-  <a href="https://www.zx80.app"><img src="static/homescreen_title.png" height="auto" width="70%"></a>
+  <a href="https://www.zx80.app"><img src="public/homescreen_title.png" height="auto" width="70%"></a>
 </p>
 
-## What's zx80.app ?
+## What's zx2023.app ?
 
 WARNING : this app is at its very early stage of development... less than ALPHA !
 
@@ -61,10 +61,10 @@ and from my deep heart
 
 press one of these buttons :
 
-[![Launch web app](static/launch-web-app.svg)](https://www.zx80.app)
+[![Launch web app](public/launch-web-app.svg)](https://www.zx80.app)
 
-[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx80)
+[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx2023)
  
 in Codeflow IDE, everything starts in :
-- src/app.html
-- src/routes/+page.svelte
+- index.html
+- src/App.svelte
