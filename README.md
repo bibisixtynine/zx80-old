@@ -67,7 +67,9 @@ press one of these buttons :
 
 [![Launch web app](public/launch-web-app.svg)](https://www.zx80.app)
 
-[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx2023)
+[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx80)
+
+[![Run in deta.space](public/openinspace.png)](https:///deta.space/discovery/@ilboued/zx80)
  
 in Codeflow IDE, everything starts in :
 - index.html
