@@ -69,7 +69,7 @@ press one of these buttons :
 
 [![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx80)
 
-[![Run in deta.space](public/openinspace.png)](https:///deta.space/discovery/@ilboued/zx80)
+[![Run in deta.space](public/lauch-in-deta-space.svg)](https:///deta.space/discovery/@ilboued/zx80)
  
 in Codeflow IDE, everything starts in :
 - index.html
