@@ -114,5 +114,13 @@
       color: green;
       background-color: rgba(0, 0, 0, 0.2);
       transform: scale(0.7);
+          
+      -ms-overflow-style: none;  /* IE and Edge hide scrollbar */
+      scrollbar-width: none;  /* Firefox */
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    #ui::-webkit-scrollbar {
+      display: none;
     }
   </style>

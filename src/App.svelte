@@ -211,6 +211,14 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 22px;
+    
+    -ms-overflow-style: none;  /* IE and Edge hide scrollbar */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  #home-view::-webkit-scrollbar {
+    display: none;
   }
 
   #home-button {
