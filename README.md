@@ -51,32 +51,15 @@ Here is [a link for some more info on how to install a PWA webapp](https://www.c
 - Vite and Evan You
 - all the contributors of these free wonderful open-source tools
 
-and also 
-
-- Stackblitz, Eric Simons and his team for the amazing online Codeflow IDE (in fact... much more in practice)... Waou !
-- Vercel, Guillermo Rauch and his team for it's great web deployement solution
-
 and from my deep heart
 
 - Sir Clive Sinclair and it's zx80,81,spectrum and QL computer family !
 
 
-## Where to go from there ?
-
-press one of these buttons :
-
-[![Launch web app](public/launch-web-app.svg)](https://www.zx80.app)
-
-[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx80)
-
-[![Run in deta.space](public/launch-in-deta-space.svg)](https:///deta.space/discovery/@ilboued/zx80)
+## Where to go from there ? Press this button :
 
 [![Open in Glitch](public/openwithglitch.svg)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
 
-in Codeflow IDE, everything starts in :
-- index.html
-- src/App.svelte
-
-or
-
-use VSCode (you will have to do in the terminal the classic "sudo npm install" and then "sudo npm run dev" ... tested on OSX SONOMA)
+- it will create on glitch.com your own version of this zx80 app !
+- You'll be able to read and live-modify the code and see the changes live in the preview window !
+- and access to your webapp immediatly on the web : no deploy... it's online from the beginning !
