@@ -63,3 +63,5 @@ and from my deep heart
 - it will create on glitch.com your own version of this zx80 app !
 - You'll be able to read and live-modify the code and see the changes live in the preview window !
 - and access to your webapp immediatly on the web : no deploy... it's online from the beginning !
+
+## Happy Codings !
