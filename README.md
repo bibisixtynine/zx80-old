@@ -58,7 +58,7 @@ and from my deep heart
 
 ## Where to go from there ? Press this button :
 
-[![Open in Glitch](public/openwithglitch.png)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
+[![Open in Glitch](public/openwithglitch2.png)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
 
 - it will create on glitch.com your own version of this zx80 app !
 - You'll be able to read and live-modify the code and see the changes live in the preview window !
