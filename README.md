@@ -56,7 +56,7 @@ and from my deep heart
 - Sir Clive Sinclair and it's zx80,81,spectrum and QL computer family !
 
 
-## Where to go from there ? Press this button :
+## Where to go from there ? Press the "Open in Glitch" button !
 
 [![Open in Glitch](public/openwithglitch2.png)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
 
