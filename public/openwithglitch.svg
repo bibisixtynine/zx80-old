@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="123.2657 50.8742 80.333 24.4729" width="80.333" height="24.4729" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="93.3501 40.3291 108.1211 32.9383" width="108.1211" height="32.9383" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient gradientUnits="userSpaceOnUse" x1="250.294" y1="14.024" x2="250.294" y2="165.363" id="gradient-0">
       <stop offset="0" style="stop-color: rgba(216, 216, 216, 1)"/>
@@ -22,7 +22,7 @@
       <stop stop-color="#FF676B" offset="1"/>
     </linearGradient>
   </defs>
-  <g style="" transform="matrix(0.16170898079872129, 0, 0, 0.16170898079872129, 122.95732299919904, 48.60644222209516)">
+  <g style="" transform="matrix(0.21764600276947027, 0, 0, 0.21764600276947027, 92.93509812556351, 37.27685220952111)">
     <rect x="1.907" y="14.024" width="496.775" height="151.339" rx="25" ry="25" style="stroke: rgb(0, 0, 0); fill: url('#gradient-0');"/>
     <g style="" transform="matrix(0.940845, 0, 0, 0.885026, 12.696414, 10.709247)">
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="matrix(1, 0, 0, 1, 0.641271, 12.405991)">
