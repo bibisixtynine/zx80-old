@@ -260,7 +260,7 @@ function getUI(uiId) {
 
 function _initUI(ui) {
   ui.innerHTML = ''
-  ui.innerHTML = '<style>center{position:fixed; left:50%; top:50%; transform:translate(-50%,-50%)} red{color:red} white{color:white} blue{color:blue} green{color:green} yellow{color:yellow} orange{color:orange} purple{color:purple}</style>'
+  ui.innerHTML = '<style>::-webkit-scrollbar{display:none;} center{position:fixed; left:50%; top:50%; transform:translate(-50%,-50%)} red{color:red} white{color:white} blue{color:blue} green{color:green} yellow{color:yellow} orange{color:orange} purple{color:purple}</style>'
   ui.style.fontFamily = 'monospace'
   ui.style.fontSize = '20px'
   ui.style.position = 'fixed'
@@ -281,7 +281,7 @@ function _initUI(ui) {
 function clear(uiId = 'ui') {
   const ui = getUI(uiId)
   ui.innerHTML = ''
-  ui.innerHTML = '<style>center{position:fixed; left:50%; top:50%; transform:translate(-50%,-50%)} red{color:red} white{color:white} blue{color:blue} green{color:green} yellow{color:yellow} orange{color:orange} purple{color:purple}</style>'
+  ui.innerHTML = '<style>::-webkit-scrollbar{display:none;} center{position:fixed; left:50%; top:50%; transform:translate(-50%,-50%)} red{color:red} white{color:white} blue{color:blue} green{color:green} yellow{color:yellow} orange{color:orange} purple{color:purple}</style>'
 }
   
 function printf(html, uiId = 'ui') {

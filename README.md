@@ -70,7 +70,9 @@ press one of these buttons :
 [![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx80)
 
 [![Run in deta.space](public/launch-in-deta-space.svg)](https:///deta.space/discovery/@ilboued/zx80)
- 
+
+[![Open in Glitch](public/openwithglitch.svg)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
+
 in Codeflow IDE, everything starts in :
 - index.html
 - src/App.svelte
