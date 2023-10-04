@@ -1,0 +1,17 @@
+{
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "zx80",
+    "short_name": "zx80",
+    "description": "a great virtual computer",
+    "icons": [
+        {
+            "src": "sunrise-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
