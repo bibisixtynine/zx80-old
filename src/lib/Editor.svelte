@@ -106,7 +106,7 @@
       overflow: scroll;
       text-align: center;
   
-      border: solid gray 1px;
+      border: solid red 1px;
       border-radius: 25px;
       width: calc(100% - 2px); /* 4px = border-width (2px... see above) x 2 */
   

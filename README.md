@@ -1,8 +1,7 @@
 # zx80.app, the online programmable computer
 
-<p align="center">
-  <a href="https://www.zx80.app"><img src="public/homescreen_title.png" height="auto" width="70%"></a>
-</p>
+<a href="https://www.zx80.app"><img src="https://cdn.glitch.global/612ceed7-8937-4cf1-b9e5-35fea986d94b/homescreen_title.png?v=1696430862284" height="auto" width="70%"></a>
+
 
 ## What's zx80.app ?
 
@@ -58,7 +57,7 @@ and from my deep heart
 
 ## Where to go from there ? Press this button :
 
-[![Open in Glitch](public/openwithglitch.svg)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
+[![Open in Glitch](https://cdn.glitch.global/612ceed7-8937-4cf1-b9e5-35fea986d94b/openwithglitch.svg?v=1696430522065)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
 
 - it will create on glitch.com your own version of this zx80 app !
 - You'll be able to read and live-modify the code and see the changes live in the preview window !
