@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>zx80</title>
+
+  <!------------------------------------------------>
+  <!-- METAs --------------------------------------->
+  <!------------------------------------------------>
+  <meta name="viewport" content="viewport-fit=cover,user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <!------------------------------------------------>
+
+  <!------------------------------------------------>
+  <!-- ICONs --------------------------------------->
+  <!------------------------------------------------>
+  <link id="favicon" rel="icon" href="sunrise.svg" type="image/svg" />
+  <!------------------------------------------------>
+
+  <!------------------------------------------------>
+  <!-- PWA setup ----------------------------------->
+  <!------------------------------------------------>
+
+  <!-- manifest -->
+
+  <link rel="manifest" href="manifest.json" crossorigin="use-credentials"/>
+
+
+
+  <!-- increase the compatibilty of the manifest for ios/windows...-->
+
+  <script async src="https://unpkg.com/pwacompat" crossorigin="anonymous"></script>
+
+
+  <!-- service worker -->
+
+  <script>
+    //if (location.protocol == "http:") location.protocol = "https:";
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("sw.js")
+        .then((reg) =>
+          console.log("+-> (1) 😍 Service Worker registered", reg)
+        )
+        .catch((err) =>
+          console.error("!!! (-) 🆘 Service Worker **not** registered", err)
+        );
+    } else {
+      console.warn("!!! (-) 🆘 Service Worker not supported in this browser");
+    }
+  </script>
+
+   
+   
+  <!------------------------------------------------>
+</head>
+
+<style>
+  html {
+    min-height: calc(100% + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+</style>
+
+<body>
+  <!-- glitch button to be redirected to glitch online code editor
+  <div class="glitchButton position-x-left position-y-top" style="z-index: 50; position:fixed;bottom:2px;right:10px;"></div><script src="https://button.glitch.me/button.js"></script>
+  -->
+  
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
