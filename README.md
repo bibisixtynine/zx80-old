@@ -62,3 +62,8 @@ and from my deep heart
 - it will create on glitch.com your own version of this zx80 app !
 - You'll be able to read and live-modify the code and see the changes live in the preview window !
 - and access to your webapp immediatly on the web : no deploy... it's online from the beginning !
+
+
+## Want to edit and play with an online vscode ? press this one :
+
+[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx80)
