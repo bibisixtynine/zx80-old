@@ -55,15 +55,19 @@ and from my deep heart
 - Sir Clive Sinclair and it's zx80,81,spectrum and QL computer family !
 
 
-## Where to go from there ? Press this button :
+## Where to go from Github ? Press this button :
 
-- [![Open in Glitch](https://cdn.glitch.global/612ceed7-8937-4cf1-b9e5-35fea986d94b/openwithglitch.svg?v=1696430639498)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
+&nbsp; [![Open in Glitch](https://cdn.glitch.global/612ceed7-8937-4cf1-b9e5-35fea986d94b/openwithglitch.svg?v=1696430639498)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
 
 - it will create on glitch.com your own version of this zx80 app !
 - You'll be able to read and live-modify the code and see the changes live in the preview window !
 - and access to your webapp immediatly on the web : no deploy... it's online from the beginning !
 
+ps : 
+- to change the random default name of your webapp, select "Settings" on the top left toolbar of Glitch, then "Edit project details", and change the project name to one of your choice, eg myZx80... so you will be able to access to your version of the webapp on https://myZx80.glitch.me ! (you'll get a message if the project name is already taken by somebody else)
+- to open the preview pane, press the PREVIEW button in the bottom toolbar : the preview will appear shortly !
+
 
 ## Want to edit and play with an online vscode ? press this one :
 
-[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx80)
+&nbsp; [![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx80)
