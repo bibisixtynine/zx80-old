@@ -57,7 +57,7 @@ and from my deep heart
 
 ## Where to go from Github ? Press this button :
 
-&nbsp; [![Open in Glitch](https://cdn.glitch.global/612ceed7-8937-4cf1-b9e5-35fea986d94b/openwithglitch.svg?v=1696430639498)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
+[![Open in Glitch](https://cdn.glitch.global/612ceed7-8937-4cf1-b9e5-35fea986d94b/openwithglitch.svg?v=1696430639498)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
 
 - it will create on glitch.com your own version of this zx80 app !
 - You'll be able to read and live-modify the code and see the changes live in the preview window !
@@ -70,4 +70,4 @@ ps :
 
 ## Want to edit and play with an online vscode ? press this one :
 
-&nbsp; [![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx80)
+[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx80)
