@@ -83,64 +83,26 @@
     ///////////////////////////////////////////////////////////////////////
     //
     // resizing and dragging of the ui view :
- let isResizing = false;
-  let isDragging = false;
-  let initialMouseX = 0;
-  let initialMouseY = 0;
-  let initialUIWidth = 0;
-  let initialUIHeight = 0;
-  let uiElement;
-
-  function handleMouseDownResize(event) {
-    event.preventDefault();
-    isResizing = true;
-    initialMouseX = event.clientX;
-    initialMouseY = event.clientY;
-    initialUIWidth = parseFloat(getComputedStyle(uiElement).width);
-    initialUIHeight = parseFloat(getComputedStyle(uiElement).height);
-  }
-
-  function handleMouseMoveResize(event) {
-    if (!isResizing) return;
-    const newWidth = initialUIWidth + (event.clientX - initialMouseX);
-    const newHeight = initialUIHeight + (event.clientY - initialMouseY);
-    uiElement.style.width = newWidth + 'px';
-    uiElement.style.height = newHeight + 'px';
-  }
-
-  function handleMouseUpResize() {
-    isResizing = false;
-  }
-
-  function handleMouseDownDrag(event) {
-    event.preventDefault();
-    isDragging = true;
-    initialMouseX = event.clientX;
-    initialMouseY = event.clientY;
-  }
-
-  function handleMouseMoveDrag(event) {
-    if (!isDragging) return;
-    const offsetX = event.clientX - initialMouseX;
-    const offsetY = event.clientY - initialMouseY;
-    const currentX = parseFloat(getComputedStyle(uiElement).left) || 0;
-    const currentY = parseFloat(getComputedStyle(uiElement).top) || 0;
-
-    initialMouseX = event.clientX;
-    initialMouseY = event.clientY;
-
-    uiElement.style.left = currentX + offsetX + 'px';
-    uiElement.style.top = currentY + offsetY + 'px';
-  }
-
-  function handleMouseUpDrag() {
-    isDragging = false;
-  }
+    //
+    let isResizing = false;
+    let isDragging = false;
+    let initialMouseX = 0;
+    let initialMouseY = 0;
+    let initialUIWidth = 0;
+    let initialUIHeight = 0;
+    let uiElement;
+ 
+    ///////////////////////////////////////////////
+    // MOUSE/TOUCH DOWN - resizing
+    function handleMouseDownResize(event) {
+      event.preventDefault();
+      isResizing = true;
+      initialMouseX = event.clientX;
+      initialMouseY = event.clientY;
+      initialUIWidth = parseFloat(getComputedStyle(uiElement).width);
+      initialUIHeight = parseFloat(getComputedStyle(uiElement).height);
+    }
   
-  // Touch events for mobile devices
-  // ... (touch event functions similar to mouse event functions)
-
-    // Touch events for mobile devices
     function handleTouchStartResize(event) {
       event.preventDefault();
       isResizing = true;
@@ -150,8 +112,16 @@
       //initialUIWidth = parseFloat(getComputedStyle($ui).width);
       //initialUIHeight = parseFloat(getComputedStyle($ui).height);
     }
-    
 
+    // MOUSE/TOUCH MOVE - resizing
+    function handleMouseMoveResize(event) {
+      if (!isResizing) return;
+      const newWidth = initialUIWidth + (event.clientX - initialMouseX);
+      const newHeight = initialUIHeight + (event.clientY - initialMouseY);
+      uiElement.style.width = newWidth + 'px';
+      uiElement.style.height = newHeight + 'px';
+    }
+  
     function handleTouchMoveResize(event) {
       if (!isResizing) return;
       const touch = event.touches[0];
@@ -161,35 +131,96 @@
       //$ui.style.height = newHeight + 'px';
     }
 
+    // MOUSE/TOUCH UP - resizing
+    function handleMouseUpResize() {
+      isResizing = false;
+    }
+    
     function handleTouchEndResize() {
       isResizing = false;
     }
 
+  
+    //////////////////////////////////////////////
+    // MOUSE/TOUCH DOWN - dragging
+    function handleMouseDownDrag(event) {
+      event.preventDefault();
+      isDragging = true;
+      initialMouseX = event.clientX;
+      initialMouseY = event.clientY;
+      let element = document.getElementById('drag-handle')
+      element.style.backgroundColor = "purple"
+    }
+  
     function handleTouchStartDrag(event) {
       event.preventDefault();
       isDragging = true;
       const touch = event.touches[0];
       initialMouseX = touch.clientX;
       initialMouseY = touch.clientY;
+      let element = document.getElementById('drag-handle')
+      element.style.backgroundColor = "purple"
     }
 
+    // MOUSE/TOUCH MOVE - dragging
+    function handleMouseMoveDrag(event) {
+      if (!isDragging) return;
+      const offsetX = event.clientX - initialMouseX;
+      const offsetY = event.clientY - initialMouseY;
+      const currentX = parseFloat(getComputedStyle(uiElement).left) || 0;
+      const currentY = parseFloat(getComputedStyle(uiElement).top) || 0;
+
+      initialMouseX = event.clientX;
+      initialMouseY = event.clientY;
+
+      uiElement.style.left = currentX + offsetX + 'px';
+      uiElement.style.top = currentY + offsetY + 'px';
+      
+      let element = document.getElementById('drag-handle')
+      element.style.backgroundColor = getRandomColor()
+    }
+  
     function handleTouchMoveDrag(event) {
       if (!isDragging) return;
       const touch = event.touches[0];
       const offsetX = touch.clientX - initialMouseX;
       const offsetY = touch.clientY - initialMouseY;
-      //$ui.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(0.7)`;
+      const currentX = parseFloat(getComputedStyle(uiElement).left) || 0;
+      const currentY = parseFloat(getComputedStyle(uiElement).top) || 0;
+      
+      initialMouseX = touch.clientX;
+      initialMouseY = touch.clientY;
+
+      uiElement.style.left = currentX + offsetX + 'px';
+      uiElement.style.top = currentY + offsetY + 'px';
+      let element = document.getElementById('drag-handle')
+      element.style.backgroundColor = getRandomColor()
     }
 
+    // MOUSE/TOUCH UP - dragging
+    function handleMouseUpDrag() {
+      isDragging = false;
+      let element = document.getElementById('drag-handle')
+      element.style.backgroundColor = "orange"
+    }
+    
     function handleTouchEndDrag() {
       isDragging = false;
+      let element = document.getElementById('drag-handle')
+      element.style.backgroundColor = "orange"
+    }
+  
+    // tools...
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
     }
 
-  /*
-    function setUIElement(element) {
-    uiElement = element;
-  }*/
-  
+
   
   </script>
   
@@ -200,26 +231,22 @@
   
   
   <CodeMirror bind:value={script} lang={javascript()} theme={oneDark} />
-<div
-  id="ui-container"
- 
-  bind:this={uiElement} 
->
-  <div
-    class="drag-handle" 
-   on:mousedown={handleMouseDownDrag}
-  on:touchstart={handleTouchStartDrag}
-  on:mousemove={handleMouseMoveDrag}
-  on:touchmove={handleTouchMoveDrag}
-  on:mouseup={handleMouseUpDrag}
-  on:touchend={handleTouchEndDrag}
-  ></div>
+  
+  <div id="ui-container" bind:this={uiElement}>
     
-  <div id="ui">
-      ...loading...
-  </div>
+    <div
+      id="drag-handle" 
+      on:mousedown={handleMouseDownDrag}
+      on:touchstart={handleTouchStartDrag}
+      on:mousemove={handleMouseMoveDrag}
+      on:touchmove={handleTouchMoveDrag}
+      on:mouseup={handleMouseUpDrag}
+      on:touchend={handleTouchEndDrag}
+    ></div>
+    
+    <div id="ui"> ...loading... </div>
 
-</div>
+  </div>
   
   <!-------------------------------------------------------->
   <!-------------------------------------------------------->
@@ -268,14 +295,14 @@
     }
     
 /* New styles for the resize handle and draggable UI */
-  .drag-handle {
+  #drag-handle {
     position: absolute;
     top: -20px; /* Adjust this value to control the handle's position */
     left: 50%;
     transform: translateX(-50%);
     width: 40px;
     height: 40px;
-    background-color: blue;
+    background-color: orange;
     border-radius: 50%;
     cursor: grab;
     z-index: 1000; /* Set z-index to make circles visible */
