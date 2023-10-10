@@ -143,6 +143,20 @@
   
     //////////////////////////////////////////////
     // MOUSE/TOUCH DOWN - dragging
+    // Function to start dragging
+  function startDrag(event) {
+    event.preventDefault();
+    isDragging = true;
+    initialMouseX = event.clientX;
+    initialMouseY = event.clientY;
+    let element = document.getElementById('drag-handle');
+    element.style.backgroundColor = "purple";
+    document.addEventListener("mousemove", handleMouseMoveDrag);
+    document.addEventListener("mouseup", stopDrag);
+        // Disable mouse events on the uiElement while dragging
+    uiElement.style.pointerEvents = "none";
+  }
+  
     function handleMouseDownDrag(event) {
       event.preventDefault();
       isDragging = true;
@@ -198,6 +212,16 @@
     }
 
     // MOUSE/TOUCH UP - dragging
+  function stopDrag() {
+    isDragging = false;
+    let element = document.getElementById('drag-handle');
+    element.style.backgroundColor = "orange";
+    document.removeEventListener("mousemove", handleMouseMoveDrag);
+    document.removeEventListener("mouseup", stopDrag);
+        // Re-enable mouse events on the uiElement
+    uiElement.style.pointerEvents = "auto";
+  }
+  
     function handleMouseUpDrag() {
       isDragging = false;
       let element = document.getElementById('drag-handle')
@@ -220,6 +244,11 @@
       return color;
     }
 
+  /*
+  on:mousedown={handleMouseDownDrag}
+      on:mousemove={handleMouseMoveDrag}
+      on:mouseup={handleMouseUpDrag}
+      */
 
   
   </script>
@@ -236,11 +265,10 @@
     
     <div
       id="drag-handle" 
-      on:mousedown={handleMouseDownDrag}
+         on:mousedown={startDrag}
+      
       on:touchstart={handleTouchStartDrag}
-      on:mousemove={handleMouseMoveDrag}
       on:touchmove={handleTouchMoveDrag}
-      on:mouseup={handleMouseUpDrag}
       on:touchend={handleTouchEndDrag}
     ></div>
     
