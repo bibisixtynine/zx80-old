@@ -78,6 +78,119 @@
         console.error(err);
       }
     };
+  
+  
+    ///////////////////////////////////////////////////////////////////////
+    //
+    // resizing and dragging of the ui view :
+ let isResizing = false;
+  let isDragging = false;
+  let initialMouseX = 0;
+  let initialMouseY = 0;
+  let initialUIWidth = 0;
+  let initialUIHeight = 0;
+  let uiElement;
+
+  function handleMouseDownResize(event) {
+    event.preventDefault();
+    isResizing = true;
+    initialMouseX = event.clientX;
+    initialMouseY = event.clientY;
+    initialUIWidth = parseFloat(getComputedStyle(uiElement).width);
+    initialUIHeight = parseFloat(getComputedStyle(uiElement).height);
+  }
+
+  function handleMouseMoveResize(event) {
+    if (!isResizing) return;
+    const newWidth = initialUIWidth + (event.clientX - initialMouseX);
+    const newHeight = initialUIHeight + (event.clientY - initialMouseY);
+    uiElement.style.width = newWidth + 'px';
+    uiElement.style.height = newHeight + 'px';
+  }
+
+  function handleMouseUpResize() {
+    isResizing = false;
+  }
+
+  function handleMouseDownDrag(event) {
+    event.preventDefault();
+    isDragging = true;
+    initialMouseX = event.clientX;
+    initialMouseY = event.clientY;
+  }
+
+  function handleMouseMoveDrag(event) {
+    if (!isDragging) return;
+    const offsetX = event.clientX - initialMouseX;
+    const offsetY = event.clientY - initialMouseY;
+    const currentX = parseFloat(getComputedStyle(uiElement).left) || 0;
+    const currentY = parseFloat(getComputedStyle(uiElement).top) || 0;
+
+    initialMouseX = event.clientX;
+    initialMouseY = event.clientY;
+
+    uiElement.style.left = currentX + offsetX + 'px';
+    uiElement.style.top = currentY + offsetY + 'px';
+  }
+
+  function handleMouseUpDrag() {
+    isDragging = false;
+  }
+  
+  // Touch events for mobile devices
+  // ... (touch event functions similar to mouse event functions)
+
+    // Touch events for mobile devices
+    function handleTouchStartResize(event) {
+      event.preventDefault();
+      isResizing = true;
+      const touch = event.touches[0];
+      initialMouseX = touch.clientX;
+      initialMouseY = touch.clientY;
+      //initialUIWidth = parseFloat(getComputedStyle($ui).width);
+      //initialUIHeight = parseFloat(getComputedStyle($ui).height);
+    }
+    
+
+    function handleTouchMoveResize(event) {
+      if (!isResizing) return;
+      const touch = event.touches[0];
+      const newWidth = initialUIWidth + (touch.clientX - initialMouseX);
+      const newHeight = initialUIHeight + (touch.clientY - initialMouseY);
+      //$ui.style.width = newWidth + 'px';
+      //$ui.style.height = newHeight + 'px';
+    }
+
+    function handleTouchEndResize() {
+      isResizing = false;
+    }
+
+    function handleTouchStartDrag(event) {
+      event.preventDefault();
+      isDragging = true;
+      const touch = event.touches[0];
+      initialMouseX = touch.clientX;
+      initialMouseY = touch.clientY;
+    }
+
+    function handleTouchMoveDrag(event) {
+      if (!isDragging) return;
+      const touch = event.touches[0];
+      const offsetX = touch.clientX - initialMouseX;
+      const offsetY = touch.clientY - initialMouseY;
+      //$ui.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(0.7)`;
+    }
+
+    function handleTouchEndDrag() {
+      isDragging = false;
+    }
+
+  /*
+    function setUIElement(element) {
+    uiElement = element;
+  }*/
+  
+  
   </script>
   
   
@@ -87,8 +200,26 @@
   
   
   <CodeMirror bind:value={script} lang={javascript()} theme={oneDark} />
-  <div id="ui">...loading...</div>
-  
+<div
+  id="ui-container"
+ 
+  bind:this={uiElement} 
+>
+  <div
+    class="drag-handle" 
+   on:mousedown={handleMouseDownDrag}
+  on:touchstart={handleTouchStartDrag}
+  on:mousemove={handleMouseMoveDrag}
+  on:touchmove={handleTouchMoveDrag}
+  on:mouseup={handleMouseUpDrag}
+  on:touchend={handleTouchEndDrag}
+  ></div>
+    
+  <div id="ui">
+      ...loading...
+  </div>
+
+</div>
   
   <!-------------------------------------------------------->
   <!-------------------------------------------------------->
@@ -96,13 +227,25 @@
   
   
   <style>
-    #ui {
-      padding: 0px;
+    #ui-container{
       margin: 0px;
-  
+      padding: 0px;
       position: fixed;
       top: 0px;
       height: 30%;
+      width: 100%;
+      border: solid orange 5px;
+
+      
+    }
+    #ui{
+      padding: 0px;
+      margin: 0px;
+  
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
       overflow: scroll;
       text-align: center;
   
@@ -113,7 +256,7 @@
       font-family: monospace;
       color: green;
       background-color: rgba(0, 0, 0, 0.2);
-      transform: scale(0.7);
+      /*transform: scale(0.7);*/
           
       -ms-overflow-style: none;  /* IE and Edge hide scrollbar */
       scrollbar-width: none;  /* Firefox */
@@ -123,4 +266,19 @@
     #ui::-webkit-scrollbar {
       display: none;
     }
+    
+/* New styles for the resize handle and draggable UI */
+  .drag-handle {
+    position: absolute;
+    top: -20px; /* Adjust this value to control the handle's position */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: blue;
+    border-radius: 50%;
+    cursor: grab;
+    z-index: 1000; /* Set z-index to make circles visible */
+
+  }
   </style>
