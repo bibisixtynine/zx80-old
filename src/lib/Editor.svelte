@@ -94,14 +94,24 @@
  
     ///////////////////////////////////////////////
     // MOUSE/TOUCH DOWN - resizing
-    function handleMouseDownResize(event) {
+    // Function to start resizing
+    function startResize(event) {
       event.preventDefault();
       isResizing = true;
       initialMouseX = event.clientX;
       initialMouseY = event.clientY;
       initialUIWidth = parseFloat(getComputedStyle(uiElement).width);
       initialUIHeight = parseFloat(getComputedStyle(uiElement).height);
+
+      // will keep dragging even if mouse moves fast
+      document.addEventListener("mousemove", handleMouseMoveResize);
+      document.addEventListener("mouseup", stopResize);
+      // Disable mouse events on the uiElement while dragging
+      // this is done to avoid continuous mouse dragging if the mouse goes fast
+      // and down (in the uiElement...)
+      uiElement.style.pointerEvents = "none";
     }
+  
   
     function handleTouchStartResize(event) {
       event.preventDefault();
@@ -109,8 +119,8 @@
       const touch = event.touches[0];
       initialMouseX = touch.clientX;
       initialMouseY = touch.clientY;
-      //initialUIWidth = parseFloat(getComputedStyle($ui).width);
-      //initialUIHeight = parseFloat(getComputedStyle($ui).height);
+      initialUIWidth = parseFloat(getComputedStyle(uiElement).width);
+      initialUIHeight = parseFloat(getComputedStyle(uiElement).height);
     }
 
     // MOUSE/TOUCH MOVE - resizing
@@ -127,15 +137,19 @@
       const touch = event.touches[0];
       const newWidth = initialUIWidth + (touch.clientX - initialMouseX);
       const newHeight = initialUIHeight + (touch.clientY - initialMouseY);
-      //$ui.style.width = newWidth + 'px';
-      //$ui.style.height = newHeight + 'px';
+      uiElement.style.width = newWidth + 'px';
+      uiElement.style.height = newHeight + 'px';
+    }
+  
+    function stopResize() {
+      isResizing = false;
+      document.removeEventListener("mousemove", handleMouseMoveResize);
+      document.removeEventListener("mouseup", stopResize);
+      // Re-enable mouse events on the uiElement
+      uiElement.style.pointerEvents = "auto";
     }
 
     // MOUSE/TOUCH UP - resizing
-    function handleMouseUpResize() {
-      isResizing = false;
-    }
-    
     function handleTouchEndResize() {
       isResizing = false;
     }
@@ -144,27 +158,21 @@
     //////////////////////////////////////////////
     // MOUSE/TOUCH DOWN - dragging
     // Function to start dragging
-  function startDrag(event) {
-    event.preventDefault();
-    isDragging = true;
-    initialMouseX = event.clientX;
-    initialMouseY = event.clientY;
-    let element = document.getElementById('drag-handle');
-    element.style.backgroundColor = "purple";
-    document.addEventListener("mousemove", handleMouseMoveDrag);
-    document.addEventListener("mouseup", stopDrag);
-        // Disable mouse events on the uiElement while dragging
-    uiElement.style.pointerEvents = "none";
-  }
-  
-    function handleMouseDownDrag(event) {
+    function startDrag(event) {
       event.preventDefault();
       isDragging = true;
       initialMouseX = event.clientX;
       initialMouseY = event.clientY;
-      let element = document.getElementById('drag-handle')
-      element.style.backgroundColor = "purple"
+      // will keep dragging even if mouse moves fast
+      document.addEventListener("mousemove", handleMouseMoveDrag);
+      document.addEventListener("mouseup", stopDrag);
+      // Disable mouse events on the uiElement while dragging
+      // this is done to avoid continuous mouse dragging if the mouse goes fast
+      // and down (in the uiElement...)
+      uiElement.style.pointerEvents = "none";
     }
+  
+
   
     function handleTouchStartDrag(event) {
       event.preventDefault();
@@ -172,8 +180,6 @@
       const touch = event.touches[0];
       initialMouseX = touch.clientX;
       initialMouseY = touch.clientY;
-      let element = document.getElementById('drag-handle')
-      element.style.backgroundColor = "purple"
     }
 
     // MOUSE/TOUCH MOVE - dragging
@@ -189,9 +195,6 @@
 
       uiElement.style.left = currentX + offsetX + 'px';
       uiElement.style.top = currentY + offsetY + 'px';
-      
-      let element = document.getElementById('drag-handle')
-      element.style.backgroundColor = getRandomColor()
     }
   
     function handleTouchMoveDrag(event) {
@@ -207,49 +210,20 @@
 
       uiElement.style.left = currentX + offsetX + 'px';
       uiElement.style.top = currentY + offsetY + 'px';
-      let element = document.getElementById('drag-handle')
-      element.style.backgroundColor = getRandomColor()
     }
 
     // MOUSE/TOUCH UP - dragging
-  function stopDrag() {
-    isDragging = false;
-    let element = document.getElementById('drag-handle');
-    element.style.backgroundColor = "orange";
-    document.removeEventListener("mousemove", handleMouseMoveDrag);
-    document.removeEventListener("mouseup", stopDrag);
-        // Re-enable mouse events on the uiElement
-    uiElement.style.pointerEvents = "auto";
-  }
-  
-    function handleMouseUpDrag() {
+    function stopDrag() {
       isDragging = false;
-      let element = document.getElementById('drag-handle')
-      element.style.backgroundColor = "orange"
+      document.removeEventListener("mousemove", handleMouseMoveDrag);
+      document.removeEventListener("mouseup", stopDrag);
+      // Re-enable mouse events on the uiElement
+      uiElement.style.pointerEvents = "auto";
     }
-    
+  
     function handleTouchEndDrag() {
       isDragging = false;
-      let element = document.getElementById('drag-handle')
-      element.style.backgroundColor = "orange"
     }
-  
-    // tools...
-    function getRandomColor() {
-      const letters = '0123456789ABCDEF';
-      let color = '#';
-      for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
-
-  /*
-  on:mousedown={handleMouseDownDrag}
-      on:mousemove={handleMouseMoveDrag}
-      on:mouseup={handleMouseUpDrag}
-      */
-
   
   </script>
   
@@ -264,9 +238,17 @@
   <div id="ui-container" bind:this={uiElement}>
     
     <div
+      id="resize-handle"
+      on:mousedown={startResize}
+      on:touchstart={handleTouchStartResize}
+      on:touchmove={handleTouchMoveResize}
+      on:touchend={handleTouchEndResize}
+    ></div>
+    
+    <div
       id="drag-handle" 
-         on:mousedown={startDrag}
-      
+      on:mousedown={startDrag}
+         
       on:touchstart={handleTouchStartDrag}
       on:touchmove={handleTouchMoveDrag}
       on:touchend={handleTouchEndDrag}
@@ -286,13 +268,13 @@
       margin: 0px;
       padding: 0px;
       position: fixed;
-      top: 0px;
+      top: 40px;
       height: 30%;
       width: 100%;
       border: solid orange 5px;
-
-      
+      border-radius: 25px;
     }
+    
     #ui{
       padding: 0px;
       margin: 0px;
@@ -304,7 +286,7 @@
       overflow: scroll;
       text-align: center;
   
-      border: solid red 1px;
+      /*border: solid red 1px;*/
       border-radius: 25px;
       width: calc(100% - 2px); /* 4px = border-width (2px... see above) x 2 */
   
@@ -322,18 +304,30 @@
       display: none;
     }
     
-/* New styles for the resize handle and draggable UI */
-  #drag-handle {
-    position: absolute;
-    top: -20px; /* Adjust this value to control the handle's position */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    background-color: orange;
-    border-radius: 50%;
-    cursor: grab;
-    z-index: 1000; /* Set z-index to make circles visible */
+    /* New styles for the resize handle and draggable UI */
+    #drag-handle {
+      position: absolute;
+      top: -50px; /* Adjust this value to control the handle's position */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: orange;
+      border-radius: 50%;
+      cursor: grab;
+      z-index: 1000; /* Set z-index to make circles visible */
 
-  }
+    }
+    
+    #resize-handle {
+      position: absolute;
+      bottom: -35px; /* Adjust this value to control the handle's position */
+      right: -35px; /* Adjust this value to control the handle's position */
+      width: 40px;
+      height: 40px;
+      background-color: orange;
+      border-radius: 50%;
+      cursor: nwse-resize;
+      z-index: 1000; /* Set z-index to make circles visible */
+    }
   </style>
