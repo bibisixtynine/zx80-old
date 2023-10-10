@@ -1,9 +1,16 @@
-# zx80.app, the online programmable computer
+---
+app_name: zx80
+title: "zx80: The Does Computer"
+tagline: Create installable webapps for any OS
+theme_color: "#f2b200"
+media:
+    - "public/zx80app-title-1280x800.png"
+ported_from: ""
+works_with: []
+---
 
-<a href="https://www.zx80.app"><img src="https://cdn.glitch.global/612ceed7-8937-4cf1-b9e5-35fea986d94b/zx80app-title.png?v=1696438664538" height="auto" width="70%"></a>
-
-
-## What's zx80.app ?
+# zx80
+## What is it ?
 
 WARNING : this app is at its very early stage of development... less than ALPHA !
 
@@ -25,7 +32,10 @@ Here is [a link for some more info on how to install a PWA webapp](https://www.c
 
 - iPhone 13 mini (ios 16.2 and Safari)
 - Macbook Air M1 (Chrome 109 and Microsoft Edge 109) osx 12/13/14 (Monterey, Ventura, Sonoma)
-- 2013 Nexus 7 tablet with android 6.0.1 and Chrome 100
+- 2013 Nexus 7 tablet - android 6.0.1 and Chrome 100
+- iPad Air 2 - iPadOS 14
+- HP Pavilion laptop - Linux PopOS 22.04LTS - Chrome 117
+- ACER Inspire Laptop - linux EasyOS 5.0
 
 ... should work with older Chrome/Chromium / osx version ... but not tested
 ... should work with older Chrome/Chromium & Edge / Windows version ... but not tested
@@ -49,27 +59,18 @@ Here is [a link for some more info on how to install a PWA webapp](https://www.c
 - Svelte and Rich Harris
 - Vite and Evan You
 - all the contributors of these free wonderful open-source tools
+- the marvellous SpaceOS and the team behind, that motivated me to continue the dev of zx80 on this revolutionnary Cloud OS !
 
 and from my deep heart
 
 - Sir Clive Sinclair and it's zx80,81,spectrum and QL computer family !
 
+## Todos
 
-## Want to play and publish live for everybody ? Press this button to instantiate your own version on glitch.com :
-- WARNING : if you read this from glitch.com website... you don't need to press the 'open with Glitch button'... you are already there !
-
-[![Open in Glitch](https://cdn.glitch.global/612ceed7-8937-4cf1-b9e5-35fea986d94b/openwithglitch.svg?v=1696430639498)](https://glitch.com/edit/#!/import/github/bibisixtynine/zx80)
-
-- it will create on glitch.com your own version of this zx80 app !
-- You'll be able to read and live-modify the code and see the changes live in the preview window !
-- and access to your webapp immediatly on the web : no deploy... it's online from the beginning !
-
-ps : 
-- to change the random default name of your webapp, select "Settings" on the top left toolbar of Glitch, then "Edit project details", and change the project name to one of your choice, eg myZX80... so you will be able to access to your version of the webapp on https://myZX80.glitch.me ! (you'll get a message if the project name is already taken by somebody else... just choose another one in cas this happen :-)
-- to open the preview pane, press the PREVIEW button in the bottom toolbar : the preview will appear shortly !
-
-
-## Want to edit and play with an online vscode ? press this one :
-
-[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/bibisixtynine/zx80)
-- you will be able to play locally with your own version of ZX80, modify the code, and even submit PR ! (new version of the ZX80.app)
+- a Place to Share installable Apps
+- Change App name and Icon
+- Docs
+- Beginner Examples
+- Toolboxs
+- Tutorials
+- ...
