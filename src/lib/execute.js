@@ -9,6 +9,7 @@ function execute(ui,code) {
     iframe.style.border = 'none'
     iframe.style.padding = '0px'
     iframe.style.margin = '0px'
+    
     ui.innerHTML = ''
     ui.appendChild(iframe)
 }
