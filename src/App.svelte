@@ -39,7 +39,7 @@
       } else {
         const stringified_apps = JSON.stringify(_apps)
         localStorage.setItem("zx80-apps-database", stringified_apps);
-        localStorage.setItem("zx80-apps-database-length", stringified_apps.length)
+        localStorage.setItem("zx80-apps-database-length", stringified_apps.length.toString())
         return _apps
       }
     } else {
@@ -130,7 +130,7 @@
 
       const stringified_apps = JSON.stringify(apps)
       localStorage.setItem("zx80-apps-database", stringified_apps);
-      localStorage.setItem("zx80-apps-database-length", stringified_apps.length)
+      localStorage.setItem("zx80-apps-database-length", stringified_apps.length.toString())
     }
   }
   //
@@ -145,6 +145,7 @@
 <!-------------------------------------------------------->
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div id="home-button" on:click={handleHomeClick}>home</div>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -154,9 +155,10 @@
   {/if}
 </div>
 
-<div id="home-view" display="block">
+<div id="home-view">
   {#each apps as app}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div id="toto" on:click={() => handleAppClick(app)}>
       <Icon
         size={iconSize}
