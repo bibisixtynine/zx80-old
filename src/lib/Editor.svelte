@@ -237,6 +237,7 @@
   
   <div id="ui-container" bind:this={uiElement}>
     
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
       id="resize-handle"
       on:mousedown={startResize}
@@ -245,6 +246,7 @@
       on:touchend={handleTouchEndResize}
     ></div>
     
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
       id="drag-handle" 
       on:mousedown={startDrag}
